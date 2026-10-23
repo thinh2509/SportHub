@@ -1,6 +1,10 @@
 ﻿namespace SportHub.API.Enums
 {
-    public class BookingStatus
+    public enum BookingStatus
     {
+        PendingPayment,
+        Confirmed,
+        Cancelled,
+        Completed
     }
 }

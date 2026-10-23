@@ -1,6 +1,9 @@
 ﻿namespace SportHub.API.Enums
 {
-    public class VenueStatus
+    public enum VenueStatus
     {
+        Pending,
+        Approved,
+        Rejected
     }
 }

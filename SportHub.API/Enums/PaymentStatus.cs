@@ -1,6 +1,9 @@
 ﻿namespace SportHub.API.Enums
 {
-    public class PaymentStatus
+    public enum PaymentStatus
     {
+        Pending,
+        Success,
+        Failed
     }
 }
