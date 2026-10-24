@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using SportHub.API.Data;
+
 namespace SportHub.API
 {
     public class Program
@@ -8,9 +11,14 @@ namespace SportHub.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            var connectString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(connectString);
+            });
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
