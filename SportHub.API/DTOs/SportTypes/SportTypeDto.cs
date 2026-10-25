@@ -1,6 +1,4 @@
 ﻿namespace SportHub.API.DTOs.SportTypes
 {
-    public class SportTypeDto
-    {
-    }
+    public record SportTypeDto(int Id, string Name);
 }
