@@ -1,6 +1,4 @@
 ﻿namespace SportHub.API.DTOs.Auth
 {
-    public class AuthResponse
-    {
-    }
+    public record AuthResponse(string AccessToken, DateTime ExpiresAt, UserDto User);
 }

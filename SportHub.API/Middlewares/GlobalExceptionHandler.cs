@@ -19,6 +19,7 @@ namespace SportHub.API.Middlewares
             {
                 NotFoundException => (StatusCodes.Status404NotFound, "Không tìm thấy dữ liệu"),
                 ConflictException => (StatusCodes.Status409Conflict, "Xung đột dữ liệu"),
+                UnauthorizedException => (StatusCodes.Status401Unauthorized, "Xác thực thất bại"),
                 _ => (StatusCodes.Status500InternalServerError, "Lỗi hệ thống")
             };
 

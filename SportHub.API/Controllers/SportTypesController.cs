@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SportHub.API.Constants;
 using SportHub.API.DTOs.SportTypes;
 using SportHub.API.Services.Interfaces;
 
@@ -28,6 +30,7 @@ namespace SportHub.API.Controllers
             return Ok(await _service.GetByIdAsync(id));
         }
 
+        [Authorize(Roles = AppRoles.Admin)]
         [HttpPost]
         public async Task<ActionResult<SportTypeDto>> Create(SportTypeRequest request)
         {
@@ -35,12 +38,14 @@ namespace SportHub.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
+        [Authorize(Roles = AppRoles.Admin)]
         [HttpPut("{id:int}")]
         public async Task<ActionResult<SportTypeDto>> Update(int id, SportTypeRequest request)
         {
             return Ok(await _service.UpdateAsync(id, request));
         }
 
+        [Authorize(Roles = AppRoles.Admin)]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
